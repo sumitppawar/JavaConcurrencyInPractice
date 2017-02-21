@@ -4,9 +4,9 @@
 2. when variable is not taking part in define other variables state
 3. when synchronization is not required.
 
-##### Problems with java concurrent API
-###### Iterator is not thread safe
-1. When accessing concurrent collection by multiple, iterator is not thread safe.
+##### Problems with Synchronized Collection (not concurrent collection java 5)
+###### Iterator is not thread safe In synchronized collections 
+1. When accessing synchronized collection by multiple, iterator is not thread safe.
 2. It follow **Fail First** approach, that it collection is modified by another thread we will get Concurrent Modification exception.
 3. One way is synchronise terator loop, using collection refernce as guard object.
 ```Java
