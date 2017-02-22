@@ -8,7 +8,7 @@
 ###### Iterator is not thread safe In synchronized collections 
 1. When accessing synchronized collection by multiple thread, iterator is not thread safe.
 2. It follow **Fail First** approach, that is if collection is modified by another thread we will get Concurrent Modification exception.
-3. One way to avoid exception is synchronise iterator loop, using collection refernce as guard object.
+3. One way to avoid exception is synchronise iterator loop, using collection reference as guard object.
 ```Java
 public void method(Vector<String> v) {
     Iterator<String> itr = v.iterator();
