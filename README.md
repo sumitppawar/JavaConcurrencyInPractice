@@ -7,7 +7,8 @@ When to use volatile
 
 Problems with Synchronized Collection (not concurrent collection java 5)
 ----------
-Iterator is not thread safe In synchronized collections 
+**Iterator is not thread safe In synchronized collections**
+
 1. When accessing synchronized collection by multiple thread, iterator is not thread safe.
 2. It follow **Fail First** approach, that is if collection is modified by another thread we will get Concurrent Modification exception.
 3. One way to avoid exception is synchronise iterator loop, using collection reference as guard object.
@@ -44,10 +45,10 @@ Thread Confinement
 1. That is when object handled to a thread, thread is exclusively owner of that object,other thread can't access or modify it unless thread release it to maintener.
 2. JDBC ```Connection``` object is good example of thread confinement. It is confined to single request thread.
 
-Ad-hoc Thread Confinement
-Stack Confinement
+**Ad-hoc Thread Confinement**
+**Stack Confinement**
 1. Use of local variable, always confined to single thread.
-ThreadLocal
+**ThreadLocal**
 1. Use of ```ThreadLocal``` Lib class.
 2. Provides get and set method that mentains seperate copy of value for each thread that uses it.
 3. get returns most recent value passed to set from current executing thread.
