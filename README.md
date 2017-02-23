@@ -31,12 +31,12 @@ public void method(Vector<String> v) {
 }
 ```
 
-4. Putting synchronized on loop may cause performance issue.
-5. Another way is to make iteration on Copy of Collection.
-6. But Copying of collection may hit memory issue, its upto situation.
-7. Even Iterator throws ConcurrentModifcationException if  another thread modifies collection, but that also not sure.
-8. Internally iterator has a count for concurrent modification trace, and that is not thread safe.
-9. There is may be a case that other thread modifies collections, but we will not get concurrent modification exception.
+Putting synchronized on loop may cause performance issue.
+Another way is to make iteration on Copy of Collection.
+But Copying of collection may hit memory issue, its upto situation.
+Even Iterator throws ConcurrentModifcationException if  another thread modifies collection, but that also not sure.
+Internally iterator has a count for concurrent modification trace, and that is not thread safe.
+There is may be a case that other thread modifies collections, but we will not get concurrent modification exception.
 
 Thread Confinement 
 -----------
@@ -45,10 +45,10 @@ Thread Confinement
 1. That is when object handled to a thread, thread is exclusively owner of that object,other thread can't access or modify it unless thread release it to maintener.
 2. JDBC ```Connection``` object is good example of thread confinement. It is confined to single request thread.
 
-**Ad-hoc Thread Confinement**
-**Stack Confinement**
+### Ad-hoc Thread Confinement
+### Stack Confinement
 1. Use of local variable, always confined to single thread.
-**ThreadLocal**
+### ThreadLocal
 1. Use of ```ThreadLocal``` Lib class.
 2. Provides get and set method that mentains seperate copy of value for each thread that uses it.
 3. get returns most recent value passed to set from current executing thread.
