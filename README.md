@@ -32,3 +32,31 @@ public void method(Vector<String> v) {
 7. Even Iterator throws ConcurrentModifcationException if  another thread modifies collection, but that also not sure.
 8. Internally iterator has a count for concurrent modification trace, and that is not thread safe.
 9. There is may be a case that other thread modifies collections, but we will not get concurrent modification exception.
+
+Thread Confinement 
+-----------
+>Object is called thread confined when it is only accessable by single thread.
+
+1. That is when object handled to a thread, thread is exclusively owner of that object,other thread can't access or modify it unless thread release it to maintener.
+2. JDBC ```Connection``` object is good example of thread confinement. It is confined to single request thread.
+
+***1. Ad-hoc Thread Confinement***
+***2. Stack Confinement***
+1. Use of local variable, always confined to single thread.
+***3. ThreadLocal***
+1. Use of ```ThreadLocal``` Lib class.
+2. Provides get and set method that mentains seperate copy of value for each thread that uses it.
+3. get returns most recent value passed to set from current executing thread.
+4. Example
+```java
+private static ThreadLocal<Connection> connectionHolder = new ThreadLocal<Connection>() {
+    public Connection initialValue() {
+        return DriverManager.getConnection(DB_URL);
+    }
+};
+public Connection getConnection() {
+    return connectionHolder.get()
+}
+```
+5. When get is called for first time, method ```initialValue()``` is execute.
+
