@@ -96,7 +96,6 @@ Interruptible Methods
 
 //Restore Interrupt in case it not possible to throws
 public class RunnableTask extends Runnable {
-    
     public void run() {
         try {
             Thread.sleep();
