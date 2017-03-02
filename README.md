@@ -77,3 +77,12 @@ Deque and Work Stealing
 6. Typical example is Web crawler, when crawler find new link in page, it will add new task to its deque.
 7. By ***Work Stealing*** pattern, sytem thread will be always busy.
 
+Synchronizer
+----------
+1. Synchronizer is an Object that manages workflow among threads.
+2. ```BlockingQueue``` is an examle of synchronizer.
+3. Othere type of synchronizer are lateches, semaphore, barriers.
+4. All synchronizer has some common properties, they all have some state. 
+5. Based on state, it forces to incoming thread to wait.
+6. They provide way to manupulate state and effient wait mechanism.
+
