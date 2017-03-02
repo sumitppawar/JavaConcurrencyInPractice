@@ -88,7 +88,7 @@ Synchronizer
 
 Interruptible Methods
 ----------
-1. When methods throws InterruptedException, it means method is blocking and may be interrupted.
+1. When method throws InterruptedException, it means method is blocking and may be interrupted.
 2. Most common use of interruption is to cancel thread work.
 3. Interruption is a cooperative mechanism and we must have plan to respond it.
 4. In java lib, either propogate it or if not possible to propogate interrupt current thread(restore the iterrupt).
