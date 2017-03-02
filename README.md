@@ -70,10 +70,10 @@ public Connection getConnection() {
 Deque and Work Stealing
 -----------
 1. Java 6 has added two new collection ```Deque``` (pronouced as 'deck') and ```BlockingDeque```, double ended queue that are allows efficient insertion and removal from both end.
-2. ```Deque``` and ```BlockingDeque`` extends ```Queue``` and ```BlockingQueue``` respectivily.
+2. ```Deque``` and ```BlockingDeque``` extends ```Queue``` and ```BlockingQueue``` respectivily.
 3. Their implementation includes ```ArrayDeque``` and ```LinkedBlockingDeque```.
-4. Unlike ```BlockingQueue``` every consumer has its own deue, once its own deque it exahusted, consumer will steal task from other threads deque.
+4. Unlike ```BlockingQueue``` every consumer has its own deue, once its own deque is exahusted, consumer will steal task from other threads deque.
 5. This type of producer consumer are mainly suited for task where consumer can be aslo producer, when consumer find out new task it will add its own deque.
 6. Typical example is Web crawler, when crawler find new link in page, it will add new task to its deque.
-7. By ***Work Stealing*** pattern, sytem thread will always busy.
+7. By ***Work Stealing*** pattern, sytem thread will be always busy.
 
