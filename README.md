@@ -105,5 +105,39 @@ public class RunnableTask extends Runnable {
     }
 }
 ```
+Latches (Synchronizer) 
+----------
+1. Latch is a synchronizer that delay threads progress till it reaches to terminal state.
+2. Latch act as gate, all thread has to wait to open gate.
+3. Latch is used when one task depends on certain ohter tasks to complete.
+4. For Example Singer has wait untill band is ready.
+```java
+public void latchExample() {
+    final CountDownLatch latch = new CountDownLatch(1);
+    
+    Thread band = new Thread(new Runnable() {
+        public void run() {
+            System.out.println("Band is ready");
+            latch.countDown();
+        }
+    });
+    
+    Thread singer = new Thread(new Runnable() {
+        public void run() {
+            try {
+                //Wait till Band is ready
+                latch.await();
+                System.out.println("Singing");
+            } catch(InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    });
+    
+    //Singer will wait to band to start
+    singer.start();
+    band.start();
+}
+```
 
 
