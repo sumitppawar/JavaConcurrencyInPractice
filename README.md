@@ -139,5 +139,36 @@ public void latchExample() {
     band.start();
 }
 ```
+FutureTask (Synchronizer) 
+----------
+1. ```FutureTask``` is wrapper for a task result, which may complete in future.
+2. Can be used to safly publication of a result  from excuting thread to calling thread.
+3. ```FutureTask<T>``` has some methods to get results state, value or cancle current task.
+4. ```FutureTask``` can used to precompute the some value, which will needed for futhure processing.
+5. Executor framework uses ```FutureTask``` to compute asynchronous task.
+
+```java
+public class PreLoader {
+
+	private final FutureTask<String> futureTask = new FutureTask<>(new Callable<String>() {
+		@Override
+		public String call() throws Exception {
+			return loadDateInfo();
+		}
+	});
+	
+	private final Thread t = new Thread(futureTask);
+	
+	public void start() {
+		t.start();
+	}
+	
+	public String getInfo() throws InterruptedException, ExecutionException {
+		return futureTask.get();
+	}
+	
+}
+
+```
 
 
