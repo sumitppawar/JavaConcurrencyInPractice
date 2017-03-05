@@ -142,7 +142,7 @@ public void latchExample() {
 FutureTask (Synchronizer) 
 ----------
 1. ```FutureTask``` is wrapper for a task result, which may complete in future.
-2. Can be used to safly publication of a result  from excuting thread to calling thread.
+2. Can be used to safely publication of a result  from excuting thread to calling thread.
 3. ```FutureTask<T>``` has some methods to get results state, value or cancle current task.
 4. ```FutureTask``` can used to precompute the some value, which will needed for futhure processing.
 5. Executor framework uses ```FutureTask``` to compute asynchronous task.
