@@ -171,4 +171,47 @@ public class PreLoader {
 
 ```
 
+Semaphore (Synchronizer) 
+----------
+1. Counting Semaphore is used to controll the number of activity that can access a given resource or perform given action at the time.
+2. Semaphore has given number of permits, activity can take permit if available else it will block untill permits is avialable.
+3. release mthod return permots to semaphore when its done with resource.
+4. Semaphore can be used to create bounded collection. Following example shows bounded hashSet
+```java
+public class BoundedeHashSet<T> {
+	private final Semaphore sem;
+	private final Set<T> set;
+	
+	public BoundedeHashSet(int bound) {
+		this.set = Collections.synchronizedSet(new HashSet<T>());
+		this.sem = new Semaphore(bound);
+	}
+	
+	public boolean add(T o) throws InterruptedException {
+		sem.acquire();
+		boolean wasAdded = false;
+		try {
+			wasAdded = set.add(o);
+			return wasAdded;
+		} finally {
+			if(!wasAdded) {
+				sem.release();
+			}
+		}
+	}
+	
+	public boolean remove(T e) {
+		boolean wasRemoved = false;
+		try {
+			wasRemoved = set.remove(e);
+			return wasRemoved;
+			
+		} finally {
+			if(wasRemoved) {
+				sem.release();
+			}
+		}
+	}
+}
+```
 
