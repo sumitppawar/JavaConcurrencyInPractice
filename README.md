@@ -215,3 +215,12 @@ public class BoundedeHashSet<T> {
 }
 ```
 
+
+Barrier (Synchronizer) 
+----------
+1. Barrier is same as of latches, but lateches are used kind for waiting a thread to complete other thread.
+2. Barrier is used to wait all thread to reach at barrier, once all thread reached at barrier point then start new task.
+```java
+//Java Example
+
+```
